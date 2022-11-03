@@ -71,7 +71,7 @@ public class BoardController {
 		
 		
 		
-	String savePath = "/Users/youngban/upload/";
+	String savePath = "/upload/";
 //	String savePath = "c:/upload/";
 
 		String newname = null;
@@ -241,7 +241,7 @@ public class BoardController {
 		
 
 
-		String savePath = "/Users/youngban/upload/";
+		String savePath = "/upload/";
 //		String savePath = "c:/upload/";
 
 
