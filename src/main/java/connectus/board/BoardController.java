@@ -97,7 +97,7 @@ public class BoardController {
 
 		int totalboard = boardService.getTotalBoard();
 		
-		List<BoardDTO> boardlst = boardService.paginglist(new int[] {(page-1)*3, 3});
+		List<BoardDTO> boardlst = boardService.paginglist(new int[] {(page-1)*10, 10});
 
 		boardService.registerBoard(dto); //
 		
@@ -111,7 +111,7 @@ public class BoardController {
 	public ModelAndView boardlist(@RequestParam(value="page",required=false, defaultValue="1") int page,String contents) {
 		int totalboard = boardService.getTotalBoard();
 		
-		List<BoardDTO> boardlst = boardService.paginglist(new int[]{(page -1)*3, 3});//  1->0 , 2->3
+		List<BoardDTO> boardlst = boardService.paginglist(new int[]{(page -1)*10, 10});//  1->0 , 2->3
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardlst", boardlst);
@@ -127,7 +127,7 @@ public class BoardController {
 		int totalboardTitle = boardService.getTotalTitleBoard();
 		
 		//3개만 조회
-		List<BoardDTO> boardlst = boardService.pagingTitlelist(new int[] {(page-1)*3, 3});
+		List<BoardDTO> boardlst = boardService.pagingTitlelist(new int[] {(page-1)*10, 10});
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardlst", boardlst);
 		mv.addObject("boardUrl","boardtitle");
@@ -141,7 +141,7 @@ public class BoardController {
 		int totalboardWriter = boardService.getTotalWriterBoard();
 		
 		//3개만 조회
-		List<BoardDTO> boardlst = boardService.pagingWriterlist(new int[] {(page-1)*3, 3});
+		List<BoardDTO> boardlst = boardService.pagingWriterlist(new int[] {(page-1)*10, 10});
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardlst", boardlst);
 		mv.addObject("boardUrl","boardwriter");
@@ -158,15 +158,15 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 		int totalboardCnt = 0;
 		if("전체".equals(selectVal)) { // 내용 검색
-			boardlst = boardService.paginglist2(new int[] {(page-1)*3, 3},searchVal);
+			boardlst = boardService.paginglist2(new int[] {(page-1)*10, 10},searchVal);
 			totalboardCnt = boardService.getTotalBoard2(searchVal);
 		}
 		else if("제목".equals(selectVal)) { // 제목 검색
-			boardlst = boardService.pagingTitlelist2(new int[] {(page-1)*3, 3},searchVal);
+			boardlst = boardService.pagingTitlelist2(new int[] {(page-1)*10, 10},searchVal);
 			totalboardCnt = boardService.getTotalTitleBoard2(searchVal);
 		}
 		else if("작성자".equals(selectVal)) { // 작성자 검색
-			boardlst = boardService.pagingWriterlist2(new int[] {(page-1)*3, 3},searchVal);
+			boardlst = boardService.pagingWriterlist2(new int[] {(page-1)*10, 10},searchVal);
 			totalboardCnt = boardService.getTotalWriterBoard2(searchVal);
 			System.out.println(boardlst+"!!!!!!");
 		}
@@ -212,7 +212,7 @@ public class BoardController {
 		int deleteCount = boardService.deleteBoard(seq);
 		if(deleteCount == 1) {
 			int totalboard = boardService.getTotalBoard();
-			List<BoardDTO> boardlst = boardService.paginglist(new int[] {(page-1)*3, 3});
+			List<BoardDTO> boardlst = boardService.paginglist(new int[] {(page-1)*10, 10});
 			mv.addObject("boardlst", boardlst);
 			mv.addObject("boardUrl","boardlist");
 			mv.addObject("totalboard",totalboard);
