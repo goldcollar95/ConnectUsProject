@@ -84,7 +84,7 @@
 
 
 					<h2>Connectus는 고객의 불편사항을 신속하게 전달받습니다.</h2>
-					<form class="report-form mt-3" action="http://localhost:8090/reportregister" method="post">
+					<form class="report-form mt-3" action="http://49.50.167.86:8080/reportregister" method="post">
 						<div class="report-form-input">
 						<span>
 							신고유형 <select name="reportkind">
